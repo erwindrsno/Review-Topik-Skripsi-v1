@@ -74,8 +74,8 @@
 }
 
 @font-face {
-    font-family: 'nunito-semi-bold-italic';
-    src: url('/fonts/static/Nunito-SemiBoldItalic.ttf');
+    font-family: 'nunito-semi-bold';
+    src: url('/fonts/static/Nunito-SemiBold.ttf');
 }
 
 @font-face {

@@ -10,6 +10,11 @@
 header {
     display: flex;
     justify-content: space-between;
+    background-color: #001b2e;
+}
+
+figure{
+    background-color: #ffefd3;
 }
 
 #logo {
@@ -23,8 +28,9 @@ nav {
 }
 
 a {
-    font-family: "nunito-regular", serif;
+    font-family: "nunito-semi-bold", serif;
     padding: 0 3vw 0 3vw;
+    color: #ff6b35;
 }
 
 main {
