@@ -1,0 +1,84 @@
+@font-face {
+    font-family: 'nunito-black';
+    src: url('/fonts/static/Nunito-Black.ttf');
+}
+
+@font-face {
+    font-family: 'nunito-black-italic';
+    src: url('/fonts/static/Nunito-BlackItalic.ttf');
+}
+
+@font-face {
+    font-family: 'nunito-bold';
+    src: url('/fonts/static/Nunito-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'nunito-bold-italic';
+    src: url('/fonts/static/Nunito-BoldItalic.ttf');
+}
+
+@font-face {
+    font-family: 'nunito-extra-bold';
+    src: url('/fonts/static/Nunito-ExtraBold.ttf');
+}
+
+@font-face {
+    font-family: 'nunito-extra-bold-italic';
+    src: url('/fonts/static/Nunito-ExtraBoldItalic.ttf');
+}
+
+@font-face {
+    font-family: 'nunito-extra-light';
+    src: url('/fonts/static/Nunito-ExtraLight.ttf');
+}
+
+@font-face {
+    font-family: 'nunito-extra-light-italic';
+    src: url('/fonts/static/Nunito-ExtraLightItalic.ttf');
+}
+
+@font-face {
+    font-family: 'nunito-italic';
+    src: url('/fonts/static/Nunito-Italic.ttf');
+}
+
+@font-face {
+    font-family: 'nunito-light';
+    src: url('/fonts/static/Nunito-Light.ttf');
+}
+
+@font-face {
+    font-family: 'nunito-light-italic';
+    src: url('/fonts/static/Nunito-LightItalic.ttf');
+}
+
+@font-face {
+    font-family: 'nunito-medium';
+    src: url('/fonts/static/Nunito-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'nunito-medium';
+    src: url('/fonts/static/Nunito-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'nunito-medium-italic';
+    src: url('/fonts/static/Nunito-MediumItalic.ttf');
+}
+
+@font-face {
+    font-family: 'nunito-regular';
+    src: url('/fonts/static/Nunito-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'nunito-semi-bold-italic';
+    src: url('/fonts/static/Nunito-SemiBoldItalic.ttf');
+}
+
+@font-face {
+    font-family: 'nunito-semi-bold-italic';
+    src: url('/fonts/static/Nunito-SemiBoldItalic.ttf');
+}
