@@ -1,7 +1,3 @@
-/* {"Orange (Crayola)":"ff6b35"
-    ,"Oxford Blue":"001b2e",
-    "Charcoal":"294c60","French gray":"adb6c4",
-    "Papaya whip":"ffefd3"} */
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +13,7 @@ header {
 }
 
 #logo {
-    width: 25vw;
+    width: 15vw;
 }
 
 nav {
@@ -27,7 +23,73 @@ nav {
 }
 
 a {
-    font-size: larger;
     font-family: "nunito-regular", serif;
     padding: 0 3vw 0 3vw;
+}
+
+main {
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.square {
+    border: 1px solid gray;
+    width: 20vw;
+    height: 45vh;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: "nunito-bold";
+    padding: 20px;
+}
+
+.credentials {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    font-family: "nunito-light";
+    font-size: larger;
+}
+
+input {
+    height: 3vh;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+#btn_padding {
+    align-self: center;
+    padding: 20px;
+}
+
+#submit {
+    font-family: "nunito-medium";
+    font-size: larger;
+    width: 8vw;
+    height: 5vh;
+    background-color: #001b2e;
+    color: #ffefd3;
+}
+
+footer {
+    background-color: #001b2e;
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    padding: 10px;
+}
+
+p {
+    font-family: "nunito-light";
+    font-size: small;
+    text-align: center;
+    color: white;
 }
