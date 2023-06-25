@@ -9,7 +9,6 @@
     outline: none;
     border: none;
     text-decoration: none;
-    font-family: nunito-regular;
 }
 
 header {
@@ -22,16 +21,13 @@ header {
 }
 
 nav {
-    align-items: center;
-}
-
-ul {
     display: flex;
-    list-style-type: none;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: space-around;
 }
 
-li {
+a {
     font-size: larger;
     font-family: "nunito-regular", serif;
+    padding: 0 3vw 0 3vw;
 }
