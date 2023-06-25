@@ -1,0 +1,7 @@
+University logo:
+https://pngtree.com/freepng/school-logo-design-template-vector_9104626.html
+
+Color:
+https://coolors.co/
+
+{"Orange (Crayola)":"ff6b35","Oxford Blue":"001b2e","Charcoal":"294c60","French gray":"adb6c4","Papaya whip":"ffefd3"}

@@ -1,0 +1,31 @@
+/* {"Orange (Crayola)":"ff6b35"
+    ,"Oxford Blue":"001b2e",
+    "Charcoal":"294c60","French gray":"adb6c4",
+    "Papaya whip":"ffefd3"} */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+}
+
+#logo{
+    width: 25vw;
+}
+
+ul{
+    display: flex;
+    list-style-type: none;
+}
+
+li{
+    font-family: ;
+}
