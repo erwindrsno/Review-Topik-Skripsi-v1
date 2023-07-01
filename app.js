@@ -16,7 +16,7 @@ app.use(express.static(staticPath));
 //template engine = .ejs
 app.set("view engine", "ejs");
 
-//parsing data
+//parsing incoming data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
