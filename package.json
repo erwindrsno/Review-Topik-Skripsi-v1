@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "q": "nodemon app"
+    "q": "nodemon app",
+    "start": "nodemon app"
   },
   "author": "Erwin Darsono",
   "license": "ISC",
@@ -15,7 +16,8 @@
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "nodemon": "^2.0.22",
-    "sequelize": "^6.32.1"
+    "sequelize": "^6.32.1",
+    "sequelize-cli": "^6.6.1"
   },
   "dependencies": {
     "bcrypt": "^5.1.0",

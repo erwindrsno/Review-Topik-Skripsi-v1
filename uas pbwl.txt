@@ -1,0 +1,27 @@
+Social markup, sebuah markup yang memudahkan platform sosmed untuk identifikasi dan menampilkan setiap metadata
+Metadata merupakan data yang mendeskripsikan data secara utuhnya untuk kebutuhan identifikasi dan fitur dari data
+menampilkan informasi dan aset untuk platform sosmed
+
+Contohnya pada twitter untuk menampilkan judul beserta deskripsi dan fotonya.
+Dengan menaruh tag <meta property=og:title content="This is a test title">, <meta property="og:description" name="description" content="This is a test description.">
+
+berlaku juga pada facebook, yaitu fb:app_id, fb:admins, fb:pages
+
+
+========================================================
+1. Heavier pages require more carbon emmission
+
+=========================================================
+QUIC = Quick UDP Internet connnection = new transport layer protocol yang digunakan di HTTP/3. QUIC dibangun di atas UDP, sehingga lebih efisien dan reliable dalam transport protocol
+daripada TCP.
+
+keuntungan quic: reduced latency, improved security, better support for mobile devices
+
+=============================
+menunjukkan bahwa 90percent web pages masih memiliki blocking time dari javascript, sehingga menyebabkan user exp tidak maksimal dikarenakan adanya delay.
+Hal ini dapat disebabkan oleh beberapa faktor seperti weight dari pages, performance issue dari user, dan penggunaan third party scripts yang menyebabkan keterlambatan.
+
+karena pada presentil sebelumnnya tidak dimasukkin ke dalam chart. Karena data dari presentil selain 90 sering kali tidak reliable, karena terdapat jumlah page yang kecil yang memiliki
+high javascript blocking times, dan pages ini dapat membelokkan data
+
+======================================================================================

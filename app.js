@@ -1,8 +1,12 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
-import bcrypt from 'bcrypt';
-import Sequelize from 'sequelize';
+import Role from './model/Role.js';
+import User from './model/User.js';
+
+//import router
+import userRouter from './routes/User.js';
+import loginRouter from './routes/Login.js';
 
 //instantiate express
 const app = express();
@@ -20,34 +24,8 @@ app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-//database
-const sequelize = new Sequelize(`${process.env.DB_NAME}`, `${process.env.MYSQL_USERNAME}`, `${process.env.MYSQL_PASSWORD}`, {
-    host: 'localhost',
-    dialect: 'mysql'
-});
-
-try {
-    await sequelize.authenticate();
-    console.log('Connection has been established successfully.');
-} catch (error) {
-    console.error('Unable to connect to the database:', error);
-}
-
-//routes
-app.get('/', (req, res) => {
-    res.render('login');
-});
-
-app.post('/login', async (req, res) => {
-    try {
-        const salt = await bcrypt.genSalt();
-        const hashedPassword = await bcrypt.hash(req.body.password, salt);
-        console.log(hashedPassword);
-    }
-    catch {
-        res.status(500).send();
-    }
-});
+app.use('/', loginRouter);
+app.use('/user', userRouter);
 
 app.listen(process.env.PORT, () => {
     console.log(`Listening on port ${process.env.PORT}`)
