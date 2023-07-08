@@ -1,8 +1,9 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
-import Role from './model/Role.js';
-import User from './model/User.js';
+import db from './database/sync.js';
+// import Role from './models/Role.js';
+// import User from './models/User.js';
 
 //import router
 import userRouter from './routes/User.js';

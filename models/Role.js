@@ -1,7 +1,7 @@
 import db from "../database/index.js";
 import { Sequelize, DataTypes } from 'sequelize';
 
-const User = db.define('User', {
+const Role = db.define('Role', {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -13,9 +13,9 @@ const User = db.define('User', {
 });
 
 // sync model to db
-(async () => {
-    await db.sync();
-    console.log("The table for user User were created!");
-})();
+// (async () => {
+//     await db.sync();
+//     console.log("The table for model Role were created!");
+// })();
 
-export default User;
+export default Role;

@@ -11,7 +11,6 @@ router.post('/login', async (req, res) => {
     try {
         const salt = await bcrypt.genSalt();
         const hashedPassword = await bcrypt.hash(req.body.password, salt);
-        console.log(hashedPassword);
     }
     catch {
         res.status(500).send();
