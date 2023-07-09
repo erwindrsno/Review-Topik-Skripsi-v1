@@ -18,6 +18,9 @@ const User = db.define('User', {
     },
     academicNum:{
         type: DataTypes.TEXT()
+    },
+    specialization:{
+        type: DataTypes.STRING(2)
     }
 });
 
