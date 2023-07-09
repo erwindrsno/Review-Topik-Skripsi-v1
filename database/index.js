@@ -1,22 +1,29 @@
-import { Sequelize } from 'sequelize';
-import dotenv from 'dotenv';
+import db from './config.js'
+import Role from '../models/Role.js';
+import User from '../models/User.js';
 
-//to use dotenv variables
-dotenv.config();
+//foreign key assignment
+User.belongsToMany(Role, { through: 'UserRole' });
+Role.belongsToMany(User, { through: 'UserRole' });
 
-//database
-const db = new Sequelize(`${process.env.DB_NAME}`, `${process.env.MYSQL_USERNAME}`, `${process.env.MYSQL_PASSWORD}`, {
-    host: `${process.env.DB_HOST}`,
-    dialect: `${process.env.DB_DIALECT}`,
-    define: { freezeTableName: true }
-});
+// sync model to db
+(async () => {
+    await db.sync();
+    console.log("===The table for all models were created!===");
 
-//establish db connection
-try {
-    await db.authenticate();
-    console.log('Connection has been established successfully.');
-} catch (error) {
-    console.error('Unable to connect to the database:', error);
-}
+    //this can be validate with try catch method
+    const admin = await Role.findOrCreate({
+        where : {roleName: "admin"},
+        defaults : {roleName: "admin"}
+    });
+    const dosen = await Role.findOrCreate({
+        where : {roleName: "dosen"},
+        defaults : {roleName: "dosen"}
+    });
+    const mahasiswa = await Role.findOrCreate({
+        where : {roleName: "mahasiswa"},
+        default: {roleName: "mahasiswa"}
+    });
+})();
 
 export default db;

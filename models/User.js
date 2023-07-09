@@ -1,4 +1,4 @@
-import db from "../database/index.js";
+import db from "../database/config.js";
 import { Sequelize, DataTypes } from 'sequelize';
 
 const User = db.define('User', {
@@ -7,15 +7,18 @@ const User = db.define('User', {
         autoIncrement: true,
         primaryKey: true
     },
-    roleName: {
-        type: DataTypes.STRING(50),
+    name: {
+        type: DataTypes.STRING(128)
+    },
+    username: {
+        type: DataTypes.STRING(64)
+    },
+    password: {
+        type: DataTypes.TEXT() // hashed and salted passwords stored as text in DB for security
+    },
+    academicNum:{
+        type: DataTypes.TEXT()
     }
 });
-
-// sync model to db
-// (async () => {
-//     await db.sync();
-//     console.log("The table for user User were created!");
-// })();
 
 export default User;

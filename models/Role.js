@@ -1,4 +1,4 @@
-import db from "../database/index.js";
+import db from "../database/config.js";
 import { Sequelize, DataTypes } from 'sequelize';
 
 const Role = db.define('Role', {
@@ -8,14 +8,8 @@ const Role = db.define('Role', {
         primaryKey: true
     },
     roleName: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.STRING(10),
     }
 });
-
-// sync model to db
-// (async () => {
-//     await db.sync();
-//     console.log("The table for model Role were created!");
-// })();
 
 export default Role;

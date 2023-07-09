@@ -1,9 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
-import db from './database/sync.js';
-// import Role from './models/Role.js';
-// import User from './models/User.js';
+import db from './database/index.js'; //harusnya ga boleh import db langsung, db harus import ke controller;
 
 //import router
 import userRouter from './routes/User.js';
