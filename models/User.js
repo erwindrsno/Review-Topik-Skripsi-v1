@@ -16,7 +16,7 @@ const User = db.define('User', {
     password: {
         type: DataTypes.TEXT() // hashed and salted passwords stored as text in DB for security
     },
-    academicNum:{
+    academic_num:{
         type: DataTypes.TEXT()
     },
     specialization:{

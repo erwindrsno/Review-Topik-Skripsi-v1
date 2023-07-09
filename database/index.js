@@ -11,19 +11,22 @@ Role.belongsToMany(User, { through: 'UserRole' });
     await db.sync();
     console.log("===The table for all models were created!===");
 
-    //this can be validate with try catch method
-    const admin = await Role.findOrCreate({
-        where : {roleName: "admin"},
-        defaults : {roleName: "admin"}
-    });
-    const dosen = await Role.findOrCreate({
-        where : {roleName: "dosen"},
-        defaults : {roleName: "dosen"}
-    });
-    const mahasiswa = await Role.findOrCreate({
-        where : {roleName: "mahasiswa"},
-        default: {roleName: "mahasiswa"}
-    });
+    try{
+        const admin = await Role.findOrCreate({
+            where : {role_name: "admin"},
+            defaults : {role_name: "admin"}
+        });
+        const dosen = await Role.findOrCreate({
+            where : {role_name: "dosen"},
+            defaults : {role_name: "dosen"}
+        });
+        const mahasiswa = await Role.findOrCreate({
+            where : {role_name: "mahasiswa"},
+            default: {role_name: "mahasiswa"}
+        });
+    } catch{
+        throw new Error('Error creating roles');
+    }
 })();
 
 export default db;

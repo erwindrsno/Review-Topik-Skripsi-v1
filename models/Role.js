@@ -7,7 +7,7 @@ const Role = db.define('Role', {
         autoIncrement: true,
         primaryKey: true
     },
-    roleName: {
+    role_name: {
         type: DataTypes.STRING(10),
     }
 });
