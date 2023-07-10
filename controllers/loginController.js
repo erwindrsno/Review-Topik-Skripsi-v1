@@ -15,7 +15,6 @@ export const register = async (req, res) => {
                     name: req.body.name,
                     username: req.body.username,
                     password: hashedPassword,
-                    // role: req.body.role, //must be an array
                     academic_num: req.body.academic_num,
                     specialization: req.body.specialization
                 }
