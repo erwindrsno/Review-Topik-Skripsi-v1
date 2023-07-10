@@ -16,9 +16,9 @@ const User = db.define('User', {
     password: {
         type: DataTypes.TEXT() // hashed and salted passwords stored as text in DB for security
     },
-    role: {
-        type:DataTypes.ENUM("admin","dosen","mahasiswa"),
-    },
+    // role: {
+    //     type:DataTypes.ENUM("admin","dosen","mahasiswa"),
+    // },
     academic_num:{
         type: DataTypes.TEXT()
     },
