@@ -45,3 +45,28 @@ export const register = async (req, res) => {
         res.status(500).send();
     }
 }
+
+export const login = async (req, res) => {
+    //harusnya validation dulu di frontend
+    const loginUser = await User.findOne({ where: { username: req.body.username } });
+    if (loginUser === null) {
+        console.log("Login failed");
+    }
+    else {
+        try {
+            const validUser = await bcrypt.compare(req.body.password,loginUser.password);
+            if(validUser){
+                // console.log("Logged in!");
+                res.send("Login OK");
+            }
+            else{
+                // console.log("login failed");
+                res.send("Login failed");
+            }
+
+        } catch (err) {
+            console.log(err);
+            res.status(500).send();
+        }
+    }
+}

@@ -1,7 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
-// import db from './database/index.js'; //harusnya ga boleh import db langsung, db harus import ke controller;
 
 //import router
 import userRouter from './routes/User.js';
