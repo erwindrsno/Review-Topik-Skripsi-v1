@@ -38,13 +38,13 @@ export const register = async (req, res) => {
 }
 
 export const login = async (req, res) => {
-    //harusnya validation dulu di frontend (min 8 char, harus ada special char, nomor dan capital);
-    const loginUser = await User.findOne({ where: { username: req.body.username } });
-    if (loginUser === null) {
-        console.log("Login failed");
-    }
-    else {
-        try {
+    try{
+        //harusnya validation dulu di frontend (min 8 char, harus ada special char, nomor dan capital);
+        const loginUser = await User.findOne({ where: { username: req.body.username } });
+        if (loginUser === null) {
+            console.log("Login failed");
+        }
+        else {
             const validUser = await bcrypt.compare(req.body.password,loginUser.password);
             if(validUser){
                 // console.log("Logged in!");
@@ -54,10 +54,11 @@ export const login = async (req, res) => {
                 // console.log("login failed");
                 res.send("Login failed");
             }
-
-        } catch (err) {
-            console.log(err);
-            res.status(500).send();
         }
+        res.status(200).send();
+    }
+    catch (err) {
+        console.log(err);
+        res.status(401).send();
     }
 }
