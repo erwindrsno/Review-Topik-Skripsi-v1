@@ -9,15 +9,7 @@
         <link rel="stylesheet" href="styling/login.css" />
     </head>
     <body>
-        <header>
-            <figure>
-                <img src="images/logo_univ_header_name.png" alt="logo instansi" id="logo" />
-            </figure>
-            <nav>
-                <a href="">Cara Penggunaan</a>
-                <a href="">Tentang Kami</a>
-            </nav>
-        </header>
+        <%- include('login-register-partials/header') %>
 
         <main>
             <div class="square">
@@ -34,14 +26,11 @@
                     <div id="btn_padding">
                         <input type="submit" value="Sign in" id="submit" />
                     </div>
+                    <a href="/register" id="register">Register</a>
                 </form>
             </div>
         </main>
 
-        <footer>
-            <div class="message">
-                <p>Feel free to reach out to me if you have any constructive suggestions! Email: erwindarsono08@gmail.com</p>
-            </div>
-        </footer>
+        <%- include('login-register-partials/footer') %>
     </body>
 </html>

@@ -13,7 +13,7 @@ header {
     background-color: #001b2e;
 }
 
-figure{
+figure {
     background-color: #ffefd3;
 }
 
@@ -44,7 +44,7 @@ main {
 .square {
     border: 1px solid gray;
     width: 20vw;
-    height: 45vh;
+    height: 46vh;
 }
 
 form {
@@ -73,7 +73,7 @@ input {
 
 #btn_padding {
     align-self: center;
-    padding: 20px;
+    padding: 20px 20px 5px 20px;
 }
 
 #submit {
@@ -98,4 +98,12 @@ p {
     font-size: small;
     text-align: center;
     color: white;
+}
+
+#register {
+    text-align: center;
+    color: gray;
+    font-family: "nunito-light";
+    text-decoration: underline;
+    font-size: smaller;
 }
