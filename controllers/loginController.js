@@ -29,7 +29,10 @@ export const register = async (req, res) => {
                 console.log('Role associated: ' + role.role_name);
             }
         }
-        res.status(200).send();
+        res.status(201).json({
+            msg: "New user created!",
+            user
+        });
     }
     catch (err){
         console.log(err)
