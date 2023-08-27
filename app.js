@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
+import session from 'express-session';
 
 //import router
 import userRouter from './routes/User.js';
@@ -21,6 +22,13 @@ app.set("view engine", "ejs");
 //parsing incoming data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+//session for authorization purpose
+app.use(session({
+    secret:`${process.env.SESSION_SECRET}`,
+    resave: false,
+    saveUninitialized: false
+}));
 
 app.use('/', loginRouter);
 app.use('/user', userRouter);
