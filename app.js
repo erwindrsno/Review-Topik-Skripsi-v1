@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
 import session from 'express-session';
+import passport from 'passport';
 
 //import router
 import userRouter from './routes/User.js';
@@ -29,6 +30,9 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', loginRouter);
 app.use('/user', userRouter);

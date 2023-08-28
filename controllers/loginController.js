@@ -33,10 +33,13 @@ export const register = async (req, res) => {
             msg: "New user created!",
             user
         });
+
+        res.redirect('/login');
     }
     catch (err){
         console.log(err)
         res.status(500).send();
+        res.redirect('/register');
     }
 }
 
