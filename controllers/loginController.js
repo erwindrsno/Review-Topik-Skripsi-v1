@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-// import db from '../database/index.js'
+import db from '../database/index.js'
 import User from '../models/User.js'
 import Role from '../models/Role.js'
 
@@ -67,5 +67,5 @@ export const login = async (req, res) => {
     //     console.log(err);
     //     res.status(401).send();
     // }
-    res.json({ message: "Login successful"});
+    res.json({ message: "Login successful" });
 }
