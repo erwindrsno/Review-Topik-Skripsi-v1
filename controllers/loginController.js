@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import db from '../database/index.js'
+// import db from '../database/index.js'
 import User from '../models/User.js'
 import Role from '../models/Role.js'
 
@@ -36,7 +36,7 @@ export const register = async (req, res) => {
 
         res.redirect('/login');
     }
-    catch (err){
+    catch (err) {
         console.log(err)
         res.status(500).send();
         res.redirect('/register');
@@ -44,27 +44,28 @@ export const register = async (req, res) => {
 }
 
 export const login = async (req, res) => {
-    try{
-        //harusnya validation dulu di frontend (min 8 char, harus ada special char, nomor dan capital);
-        const loginUser = await User.findOne({ where: { username: req.body.username } });
-        if (loginUser === null) {
-            console.log("Login failed");
-        }
-        else {
-            const validUser = await bcrypt.compare(req.body.password,loginUser.password);
-            if(validUser){
-                // console.log("Logged in!");
-                res.send("Login OK");
-            }
-            else{
-                // console.log("login failed");
-                res.send("Login failed");
-            }
-        }
-        res.status(200).send();
-    }
-    catch (err) {
-        console.log(err);
-        res.status(401).send();
-    }
+    // try {
+    //     //harusnya validation dulu di frontend (min 8 char, harus ada special char, nomor dan capital);
+    //     const loginUser = await User.findOne({ where: { username: req.body.username } });
+    //     if (loginUser === null) {
+    //         console.log("Login failed");
+    //     }
+    //     else {
+    //         const validUser = await bcrypt.compare(req.body.password, loginUser.password);
+    //         if (validUser) {
+    //             // console.log("Logged in!");
+    //             res.send("Login OK");
+    //         }
+    //         else {
+    //             // console.log("login failed");
+    //             res.send("Login failed");
+    //         }
+    //     }
+    //     res.status(200).send();
+    // }
+    // catch (err) {
+    //     console.log(err);
+    //     res.status(401).send();
+    // }
+    res.json({ message: "Login successful"});
 }

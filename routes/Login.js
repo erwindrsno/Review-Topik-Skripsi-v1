@@ -1,5 +1,6 @@
 import express from 'express';
-import { register,login } from '../controllers/loginController.js';
+import { register, login } from '../controllers/loginController.js';
+import passport from 'passport'
 
 const router = express.Router();
 
@@ -7,15 +8,15 @@ router.get('/', (req, res) => {
     res.render('login');
 });
 
-router.get('/register', (req,res) => {
+router.get('/register', (req, res) => {
     res.render('register');
 });
 
-router.post('/login', login);
+router.post('/login', passport.authenticate('local', { successRedirect:'/register', failureRedirect:'/login'}), login);
 
 router.post('/register', register);
 
-router.get('/tes', (req,res) => {
+router.get('/tes', (req, res) => {
     res.send("Hello world");
 });
 

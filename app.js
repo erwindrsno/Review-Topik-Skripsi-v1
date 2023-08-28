@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 import session from 'express-session';
 import passport from 'passport';
+import initializePassport from './passport-config.js';
 
 //import router
 import userRouter from './routes/User.js';
@@ -30,6 +31,8 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
+
+initializePassport(passport);
 
 app.use(passport.initialize());
 app.use(passport.session());
