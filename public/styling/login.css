@@ -37,8 +37,33 @@ main {
   width: 100%;
   height: 75vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+ul {
+  width: 20vw;
+  height: 4vh;
+  background-color: #294c60;
+  border-radius: 5px;
+  align-items: center;
+}
+
+li:last-child:hover{
+    background: #ff6b35;
+}
+
+li:first-child:hover{
+    background: #ff6b35;
+}
+
+li {
+  font-family: "nunito-semi-bold";
+  list-style-type: none;
+  color: white;
+  padding: 1% 3vw;
+  border-radius: 5px;
 }
 
 .square {
@@ -69,9 +94,9 @@ footer {
   padding: 10px;
 }
 
-/* p {
+p {
   font-family: "nunito-light";
   font-size: small;
   text-align: center;
   color: white;
-} */
+}

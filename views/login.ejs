@@ -12,12 +12,11 @@
     <%- include('login-register-partials/header') %>
 
     <main>
+      <ul id="tabs">
+        <li class="tab" data-form="login">Login</li>
+        <li class="tab" data-form="register">Register</li>
+      </ul>
       <div class="square">
-        <ul id="tabs">
-          <li class="tab" data-form="login">Login</li>
-          <li class="tab" data-form="register">Register</li>
-        </ul>
-
         <div class="form-container" id="loginForm">
           <form action="/login" method="post">
             <div>
@@ -36,7 +35,6 @@
 
         <div class="form-container" id="registerForm">
           <form action="/register" method="post">
-            <p>Register page nih bos</p>
             <div>
               <label for="username">Username</label>
               <input type="text" name="username" />
