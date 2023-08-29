@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .form-container {
+        display: none;
+      }
+
+      .active {
+        display: block;
+      }
+    </style>
+    <title>Login and Register Forms</title>
+  </head>
+  <body>
+    <ul>
+      <li><a href="#" class="tab" data-form="login">Login</a></li>
+      <li><a href="#" class="tab" data-form="register">Register</a></li>
+    </ul>
+
+    <div class="form-container active" id="loginForm">
+      <h2>Login Form</h2>
+      <!-- Your login form HTML here -->
+    </div>
+
+    <div class="form-container" id="registerForm">
+      <h2>Register Form</h2>
+      <!-- Your register form HTML here -->
+    </div>
+
+    <script>
+      const tabs = document.querySelectorAll(".tab");
+      const formContainers = document.querySelectorAll(".form-container");
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", function (event) {
+          event.preventDefault();
+
+          const targetForm = this.getAttribute("data-form");
+
+          formContainers.forEach((container) => {
+            container.classList.remove("active");
+          });
+
+          document.getElementById(targetForm + "Form").classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>
