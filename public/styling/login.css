@@ -61,14 +61,6 @@ main {
   justify-content: space-around;
 }
 
-li:first-child:hover {
-  background: #001b2e;
-}
-
-li:last-child:active {
-  background: #001b2e;
-}
-
 
 .tab {
   font-family: "nunito-semi-bold";

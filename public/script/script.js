@@ -12,7 +12,7 @@ console.log("Script triggered!");
       event.preventDefault();
 
       if(document.querySelector('.active')){
-        tab.style.backgroundColor = 'red';
+        tab.style.backgroundColor = '#001b2e';
       }
 
       const targetForm = this.getAttribute('data-form');
