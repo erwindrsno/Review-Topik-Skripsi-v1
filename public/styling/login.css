@@ -42,40 +42,41 @@ main {
   justify-content: center;
 }
 
-ul {
-  width: 20vw;
-  height: 4vh;
-  background-color: #294c60;
-  border-radius: 5px;
-  align-items: center;
-}
-
-li:last-child:hover{
-    background: #ff6b35;
-}
-
-li:first-child:hover{
-    background: #ff6b35;
-}
-
-li {
-  font-family: "nunito-semi-bold";
-  list-style-type: none;
-  color: white;
-  padding: 1% 3vw;
-  border-radius: 5px;
-}
-
 .square {
   border: 1px solid gray;
-  width: 20vw;
+  width: 30vw;
   height: 45vh;
 }
 
 #tabs {
+  width: 30vw;
+  height: 4vh;
+  padding: 0.3vh 0.3vw;
+  background-color: #294c60;
   display: flex;
   flex-direction: row;
+  border-radius: 5px;
+  align-items: center;
+  text-align: center;
   justify-content: space-around;
+}
+
+li:first-child:hover {
+  background: #001b2e;
+}
+
+li:last-child:active {
+  background: #001b2e;
+}
+
+
+.tab {
+  font-family: "nunito-semi-bold";
+  list-style-type: none;
+  width: 15vw;
+  color: white;
+  padding: 1% 0;
+  border-radius: 5px;
 }
 
 .form-container {

@@ -11,6 +11,10 @@ console.log("Script triggered!");
     tab.addEventListener('click', function (event) {
       event.preventDefault();
 
+      if(document.querySelector('.active')){
+        tab.style.backgroundColor = 'red';
+      }
+
       const targetForm = this.getAttribute('data-form');
 
       formContainers.forEach(container => {
