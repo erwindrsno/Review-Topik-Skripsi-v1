@@ -79,6 +79,14 @@ main {
   display: block;
 }
 
+.selected{
+  background-color: #001b2e;
+}
+
+#submit2{
+  margin-bottom: 130px;
+}
+
 footer {
   background-color: #001b2e;
   width: 100vw;
