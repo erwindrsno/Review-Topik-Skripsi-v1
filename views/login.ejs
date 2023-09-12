@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
     <script src="script/script.js" defer></script>
-    <link rel="stylesheet" href="styling/fonts.css" />
-    <link rel="stylesheet" href="styling/login.css" />
+    <link rel="stylesheet" href="style/fonts.css" />
+    <link rel="stylesheet" href="style/login.css" />
   </head>
   <body>
     <%- include('login-register-partials/header') %>
@@ -19,47 +19,47 @@
       <div class="square">
         <div class="form-container" id="loginForm">
           <form action="/login" method="post">
-            <div>
+            <div class="user-column">
               <label for="username">Username</label>
               <input type="text" name="username" />
             </div>
-            <div>
+            <div class="user-column">
               <label for="password">Password</label>
               <input type="password" name="password" />
             </div>
-            <div>
-              <input type="submit" value="Sign in" id="submit" />
+            <div class="center">
+              <input type="submit" value="Sign in"/>
             </div>
           </form>
         </div>
 
         <div class="form-container" id="registerForm">
           <form action="/register" method="post">
-            <div>
+            <div class="user-column">
               <label for="name">Name</label>
               <input type="text" name="name" />
             </div>
-            <div>
+            <div class="user-column">
               <label for="username">Username</label>
               <input type="text" name="username" />
             </div>
-            <div>
+            <div class="user-column">
               <label for="password">Password</label>
               <input type="password" name="password" />
             </div>
-            <div>
+            <div class="user-column">
               <label for="academic_num">Academic ID</label>
               <input type="text" name="academic_num" />
             </div>
-            <div>
+            <div class="user-column">
               <label for="specialization">Peminatan:</label>
               <select name="specialization" id="specialization">
                 <option value="CS">Computing Science</option>
                 <option value="DS">Data Science</option>
               </select>
             </div>
-            <div>
-              <input type="submit" value="Register" id="submit2" />
+            <div class="center">
+              <input type="submit" value="Register"/>
             </div>
           </form>
         </div>

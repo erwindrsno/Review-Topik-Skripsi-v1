@@ -45,7 +45,8 @@ main {
 .square {
   border: 1px solid gray;
   width: 30vw;
-  height: 45vh;
+  height: 50vh;
+  font-family: "nunito-light";
 }
 
 #tabs {
@@ -59,8 +60,8 @@ main {
   align-items: center;
   text-align: center;
   justify-content: space-around;
+  margin-bottom: 1vh;
 }
-
 
 .tab {
   font-family: "nunito-semi-bold";
@@ -85,6 +86,49 @@ main {
 
 #submit2{
   margin-bottom: 130px;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  padding: 2vh 2vw;
+  font-size: medium;
+}
+
+.user-column{
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2vh ;
+  gap: 0.5vh;
+}
+
+input{
+  border: solid;
+  border-color: #adb6c4;
+  border-radius: 2px;
+  font-size: medium;
+  padding: 1%;
+}
+
+select{
+  border: solid;
+  border-color: #adb6c4;
+  border-radius: 2px;
+  font-size: medium;
+  padding: 1%;
+}
+
+input[type="submit"]{
+  background-color: #001b2e;
+  color: white;
+  padding: 1vh 2vw;
+  border-radius: 5px;
+  border: none;
+}
+
+.center{
+  display: flex;
+  justify-content: center;
 }
 
 footer {
