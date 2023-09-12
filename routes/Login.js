@@ -13,14 +13,20 @@ router.get('/register', (req, res) => {
 });
 
 router.post('/login', passport.authenticate('local', { 
-    successRedirect:'/tes', 
-    failureRedirect:'/login'
+    successRedirect:'/success', 
+    failureRedirect:'/failed'
 }));
 
 router.post('/register', register);
 
-router.get('/tes', (req, res) => {
-    res.send("Hello world");
+router.get('/success', (req, res) => {
+    res.status(200);
+    res.json({ message: "auth ok" });
+});
+
+router.get('/failed', (req, res) => {
+    res.status(201);
+    res.json({ message: "auth failed" });
 });
 
 export default router;

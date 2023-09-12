@@ -1,3 +1,4 @@
+// import Swal from 'sweetalert2';
 console.log("Script triggered!");
 
 (() => {
@@ -30,12 +31,12 @@ console.log("Script triggered!");
   });
 })();
 
-// const formLogIn = document.getElementById("login_form");
-// if(formLogIn != null || formLogIn != undefined){
-//     formLogIn.addEventListener("submit", onSubmitLogIn);
-// }
+const formLogIn = document.getElementById("login_form");
+if(formLogIn != null || formLogIn != undefined){
+    formLogIn.addEventListener("submit", onSubmitLogin);
+}
 
-const formLogin = document.getElementById("loginForm");
+const formLogin = document.querySelector("form[action='/login']");
 formLogin.addEventListener("submit", onSubmitLogin);
 
 function onSubmitLogin(event){
@@ -47,11 +48,6 @@ function onSubmitLogin(event){
   }
   const obj = {username : arr[0], password : arr[1]};
   let input = encodeURL(obj);
-  console.log(formElements);
-  // const email = document.getElementById("input_email");
-  // const password = document.getElementById("input_pw");
-  // console.log(email);
-  // console.log(password);
 
   const init = {
       method: 'post',
@@ -60,6 +56,35 @@ function onSubmitLogin(event){
       },
       body: input
   };
+
+  fetch('login',init)
+    .then(res => {
+        // console.log(res.status);
+        // if(res.status == 200){
+        //   const Toast = Swal.mixin({
+        //     toast: true,
+        //     position: 'top-right',
+        //     iconColor: 'white',
+        //     customClass: {
+        //       popup: 'colored-toast'
+        //     },
+        //     showConfirmButton: false,
+        //     timer: 1500,
+        //     timerProgressBar: true
+        //   })
+        //   Toast.fire({
+        //     icon: 'success',
+        //     title: 'Success'
+        //   })
+        // }
+        // else if(res.)
+        // console.log(res);
+        return res.json();
+    })
+    .then(result => {
+        console.log(result.message);
+        console.log(result);
+    })
 };
 
 function encodeURL(data){
