@@ -29,3 +29,43 @@ console.log("Script triggered!");
     });
   });
 })();
+
+// const formLogIn = document.getElementById("login_form");
+// if(formLogIn != null || formLogIn != undefined){
+//     formLogIn.addEventListener("submit", onSubmitLogIn);
+// }
+
+const formLogin = document.getElementById("loginForm");
+formLogin.addEventListener("submit", onSubmitLogin);
+
+function onSubmitLogin(event){
+  event.preventDefault();
+  let formElements = event.currentTarget.elements;
+  let arr = [];
+  for (let i = 0; i < event.currentTarget.length-1; i++) {
+      arr[i] = formElements[i].value;
+  }
+  const obj = {username : arr[0], password : arr[1]};
+  let input = encodeURL(obj);
+  console.log(formElements);
+  // const email = document.getElementById("input_email");
+  // const password = document.getElementById("input_pw");
+  // console.log(email);
+  // console.log(password);
+
+  const init = {
+      method: 'post',
+      headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: input
+  };
+};
+
+function encodeURL(data){
+  const ret = [];
+  for (let d in data){
+      ret.push(encodeURIComponent(d) + '=' + encodeURIComponent(data[d]));
+  }
+  return ret.join('&');
+}
