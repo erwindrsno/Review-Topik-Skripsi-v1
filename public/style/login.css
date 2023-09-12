@@ -120,10 +120,6 @@ select{
   padding: 1%;
 }
 
-option{
-  font-family: "nunito-light";
-}
-
 input[type="submit"]{
   background-color: #001b2e;
   color: white;
