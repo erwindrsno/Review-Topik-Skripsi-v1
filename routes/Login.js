@@ -20,13 +20,12 @@ router.post('/login', passport.authenticate('local', {
 router.post('/register', register);
 
 router.get('/success', (req, res) => {
-    res.status(200);
-    res.json({ message: "auth ok" });
+    res.status(200).json({ message: "auth ok" });
 });
 
 router.get('/failed', (req, res) => {
-    res.status(201);
-    res.json({ message: "auth failed" });
+    // res.status(201);
+    res.status(401).json({ message: "wrong credentials" });
 });
 
 export default router;

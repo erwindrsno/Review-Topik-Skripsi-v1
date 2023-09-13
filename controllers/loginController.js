@@ -29,12 +29,7 @@ export const register = async (req, res) => {
                 console.log('Role associated: ' + role.role_name);
             }
         }
-        res.status(201).json({
-            msg: "New user created!",
-            user
-        });
-
-        res.redirect('/login');
+        res.status(201).redirect('/');
     }
     catch (err) {
         console.log(err)

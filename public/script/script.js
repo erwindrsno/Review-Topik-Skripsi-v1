@@ -57,28 +57,9 @@ function onSubmitLogin(event){
       body: input
   };
 
-  fetch('login',init)
+  fetch('/login',init)
     .then(res => {
-        // console.log(res.status);
-        // if(res.status == 200){
-        //   const Toast = Swal.mixin({
-        //     toast: true,
-        //     position: 'top-right',
-        //     iconColor: 'white',
-        //     customClass: {
-        //       popup: 'colored-toast'
-        //     },
-        //     showConfirmButton: false,
-        //     timer: 1500,
-        //     timerProgressBar: true
-        //   })
-        //   Toast.fire({
-        //     icon: 'success',
-        //     title: 'Success'
-        //   })
-        // }
-        // else if(res.)
-        // console.log(res);
+        console.log(res.status);
         return res.json();
     })
     .then(result => {
