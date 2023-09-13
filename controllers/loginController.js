@@ -29,6 +29,7 @@ export const register = async (req, res) => {
                 console.log('Role associated: ' + role.role_name);
             }
         }
+        console.log(user);
         res.status(201).redirect('/');
     }
     catch (err) {

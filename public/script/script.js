@@ -1,4 +1,5 @@
 // import Swal from 'sweetalert2';
+
 console.log("Script triggered!");
 
 (() => {
@@ -36,17 +37,17 @@ if(formLogIn != null || formLogIn != undefined){
     formLogIn.addEventListener("submit", onSubmitLogin);
 }
 
-const formLogin = document.querySelector("form[action='/login']");
-formLogin.addEventListener("submit", onSubmitLogin);
+const formLogin = document.querySelector("form[action='/register']");
+formLogin.addEventListener("submit", onSubmitRegister);
 
-function onSubmitLogin(event){
+function onSubmitRegister(event){
   event.preventDefault();
   let formElements = event.currentTarget.elements;
   let arr = [];
   for (let i = 0; i < event.currentTarget.length-1; i++) {
       arr[i] = formElements[i].value;
   }
-  const obj = {username : arr[0], password : arr[1]};
+  const obj = {name: arr[0], username : arr[1], password : arr[2], academic_num: arr[3], specialization: arr[4]};
   let input = encodeURL(obj);
 
   const init = {
@@ -57,14 +58,18 @@ function onSubmitLogin(event){
       body: input
   };
 
-  fetch('/login',init)
+  fetch('/register',init)
     .then(res => {
         console.log(res.status);
-        return res.json();
+        return res.text();
     })
     .then(result => {
-        console.log(result.message);
-        console.log(result);
+        // let notyf = new Notyf();
+        // console.log(result.message);
+        // console.log(result);
+        // bootbox.init();
+        // bootbox.alert("This is a simple alert message.");
+        // notyf.success('Your changes have been successfully saved!');
     })
 };
 
