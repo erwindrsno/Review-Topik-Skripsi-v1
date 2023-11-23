@@ -39,6 +39,13 @@ export const register = async (req, res) => {
     }
 }
 
+export const logout = (req, res, next) => {
+    req.logout(function(err) {
+        if (err) { return next(err); }
+        res.redirect('/');
+    });
+}
+
 // export const login = async (req, res) => {
 //     // try {
 //     //     //harusnya validation dulu di frontend (min 8 char, harus ada special char, nomor dan capital);
