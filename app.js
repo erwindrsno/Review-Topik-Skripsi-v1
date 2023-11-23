@@ -4,6 +4,7 @@ import path from 'path';
 import session from 'express-session';
 import passport from 'passport';
 import initializePassport from './passport-config.js';
+import methodOverride from 'method-override';
 
 //import router
 import userRouter from './routes/User.js';
@@ -24,6 +25,9 @@ app.set("view engine", "ejs");
 //parsing incoming data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+//overriding method
+app.use(methodOverride('_method'));
 
 //session for authorization purpose
 app.use(session({
