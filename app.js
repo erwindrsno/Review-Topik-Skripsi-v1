@@ -9,6 +9,7 @@ import methodOverride from 'method-override';
 //import router
 import userRouter from './routes/User.js';
 import loginRouter from './routes/Login.js';
+import periodRouter from './routes/Period.js';
 
 //instantiate express
 const app = express();
@@ -42,7 +43,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', loginRouter);
-app.use('/user', userRouter);
+app.use('/users', userRouter);
+app.use('/periods', periodRouter);
 
 app.listen(process.env.PORT, () => {
     console.log(`Listening on port ${process.env.PORT}`)

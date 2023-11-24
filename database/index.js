@@ -25,6 +25,10 @@ import Period from '../models/Period.js';
             where : {role_name: "mahasiswa"},
             default: {role_name: "mahasiswa"}
         });
+        const period = await Period.create({
+            isOddSemester: true,
+            year: "2023/2024"
+        });
     } catch{
         throw new Error('Error creating roles');
     }
