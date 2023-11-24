@@ -11,18 +11,15 @@ export const getAllPeriods = async (req, res, next) => {
 }
 
 export const addNewPeriod = async(req, res, next) => {
-  //harus find or create
+  //sisa error handling
   try{
-    const [period, created] = await Period.create({
-      where: { academic_num: req.body.academic_num },
+    const [period, created] = await Period.findOrCreate({
+      where: { year: req.body.year },
       defaults: {
-          name: req.body.name,
-          username: req.body.username,
-          password: hashedPassword,
-          academic_num: req.body.academic_num,
-          specialization: req.body.specialization
+          isOddSemester: req.body.isOddSemester
       }
-  });
+    });
+    res.status(201).json(period);
   }
   catch(err){
     console.log(err);
