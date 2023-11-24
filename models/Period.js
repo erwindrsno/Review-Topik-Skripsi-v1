@@ -7,7 +7,7 @@ const Period = db.define('Period', {
         autoIncrement: true,
         primaryKey: true
     },
-    semester: {
+    isOddSemester: {
         type: DataTypes.BOOLEAN,
     },
     year:{

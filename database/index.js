@@ -1,6 +1,7 @@
 import db from './config.js'
 import Role from '../models/Role.js';
 import User from '../models/User.js';
+import Period from '../models/Period.js';
 
 // sync model to db
 (async () => {
