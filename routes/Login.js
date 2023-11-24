@@ -28,7 +28,7 @@ router.get('/success', (req, res) => {
 
 router.get('/failed', (req, res) => {
     // res.status(201);
-    res.status(401).json({ message: "wrong credentials" });
+    res.status(401).json({ message: "auth NOT ok" });
 });
 
 export default router;

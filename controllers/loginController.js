@@ -29,8 +29,7 @@ export const register = async (req, res) => {
                 console.log('Role associated: ' + role.role_name);
             }
         }
-        console.log(user);
-        res.status(201).redirect('/');
+        res.status(201).json(user);
     }
     catch (err) {
         console.log(err)
@@ -42,7 +41,7 @@ export const register = async (req, res) => {
 export const logout = (req, res, next) => {
     req.logout(function(err) {
         if (err) { return next(err); }
-        res.redirect('/');
+        // res.redirect('/');
     });
 }
 
