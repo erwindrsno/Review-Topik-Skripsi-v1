@@ -8,7 +8,8 @@ dotenv.config();
 const db = new Sequelize(`${process.env.DB_NAME}`, `${process.env.MYSQL_USERNAME}`, `${process.env.MYSQL_PASSWORD}`, {
     host: `${process.env.DB_HOST}`,
     dialect: `${process.env.DB_DIALECT}`,
-    define: { freezeTableName: true }
+    define: { freezeTableName: true },
+    logging: false
 });
 
 //establish db connection

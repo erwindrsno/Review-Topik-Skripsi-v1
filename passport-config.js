@@ -30,6 +30,7 @@ function initialize(passport) {
 
   passport.deserializeUser(async (id, done) => {
     try {
+      console.log("des user");
       const user = await User.findByPk(id);
       done(null, user);
     } catch (error) {

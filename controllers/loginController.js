@@ -20,7 +20,7 @@ export const register = async (req, res) => {
         });
 
         if (created) {
-            const role = await Role.findOne({ where: { role_name: 'mahasiswa' } })
+            const role = await Role.findOne({ where: { role_name: 'admin' } })
             if (role === null) {
                 res.status(500).send("Role tidak ditemukan");
             }
@@ -41,7 +41,7 @@ export const register = async (req, res) => {
 export const logout = (req, res, next) => {
     req.logout(function(err) {
         if (err) { return next(err); }
-        // res.redirect('/');
+        res.status(200).json({msg: "logout succeed"});
     });
 }
 
