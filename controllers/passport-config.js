@@ -2,7 +2,7 @@ import User from '../models/User.js'
 import { Strategy as LocalStrategy } from 'passport-local'
 import bcrypt from 'bcrypt'
 
-export const initialize = (passport) => {
+export const initializePassport = passport => {
   passport.use(new LocalStrategy(async (username, password, done) => {
     try {
       //harusnya validation dulu di frontend (min 8 char, harus ada special char, nomor dan capital);
@@ -15,7 +15,7 @@ export const initialize = (passport) => {
       if (!passwordMatch) return done(null, false, { message: "Incorrect password" });
 
       // res.status(200).send();
-
+      console.log("enter");
       return done(null, loginUser);
     }
     catch (err) {

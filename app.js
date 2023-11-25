@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 import session from 'express-session';
 import passport from 'passport';
-import initializePassport from './controllers/passport-config.js';
+import { initializePassport } from './controllers/passport-config.js';
 import methodOverride from 'method-override';
 
 //import router
