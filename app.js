@@ -5,6 +5,7 @@ import session from 'express-session';
 import passport from 'passport';
 import { initializePassport } from './controllers/passport-config.js';
 import methodOverride from 'method-override';
+import cookieParser from 'cookie-parser';
 
 //import router
 import userRouter from './routes/User.js';
@@ -29,6 +30,9 @@ app.use(express.urlencoded({ extended: true }));
 
 //overriding method
 app.use(methodOverride('_method'));
+
+//cookieparser
+app.use(cookieParser());
 
 //session for authorization purpose
 app.use(session({

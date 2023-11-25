@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "bcrypt": "^5.1.0",
-    "cookieparser": "^0.1.0",
+    "cookie-parser": "^1.4.6",
     "express-session": "^1.17.3",
     "method-override": "^3.0.0",
     "mysql2": "^3.4.3",
