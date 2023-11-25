@@ -1,8 +1,8 @@
-import User from './models/User.js'
+import User from '../models/User.js'
 import { Strategy as LocalStrategy } from 'passport-local'
 import bcrypt from 'bcrypt'
 
-function initialize(passport) {
+export const initialize = (passport) => {
   passport.use(new LocalStrategy(async (username, password, done) => {
     try {
       //harusnya validation dulu di frontend (min 8 char, harus ada special char, nomor dan capital);
@@ -38,5 +38,3 @@ function initialize(passport) {
     }
   });
 }
-
-export default initialize;

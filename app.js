@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 import session from 'express-session';
 import passport from 'passport';
-import initializePassport from './passport-config.js';
+import initializePassport from './controllers/passport-config.js';
 import methodOverride from 'method-override';
 
 //import router
@@ -32,7 +32,7 @@ app.use(methodOverride('_method'));
 
 //session for authorization purpose
 app.use(session({
-    secret:`${process.env.SESSION_SECRET}`,
+    secret: `${process.env.SESSION_SECRET}`,
     resave: false,
     saveUninitialized: false
 }));
