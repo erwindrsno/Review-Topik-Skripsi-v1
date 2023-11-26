@@ -2,7 +2,6 @@ import Period from '../models/Period.js';
 
 export const getAllPeriods = async (req, res, next) => {
   try{
-    console.log(req.user.roles);
     const periods = await Period.findAll();
     res.status(200).json(periods);
   }
