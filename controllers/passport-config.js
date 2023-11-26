@@ -15,18 +15,6 @@ export const initializePassport = passport => {
       //if password not match, then no error but still false user
       if (!passwordMatch) return done(null, false, { message: "Incorrect password" });
 
-      // const loginUserRoles = await loginUser.getRoles();
-
-      // console.log(loginUserRoles[0].role_name);
-
-      // const tes = JSON.stringify(loginUser.Roles, null, 2)
-
-      // console.log(tes[0]);
-
-      // console.log(loginUser.Roles[0].role_name);
-
-      // res.status(200).send();
-
       return done(null, loginUser);
     }
     catch (err) {
@@ -34,12 +22,6 @@ export const initializePassport = passport => {
       return done(err);
     }
   }))
-
-  // passport.serializeUser((user, done) => {
-  //   // console.log(user.Roles);
-  //   done(null, { id: user.id, roles: user.Roles });
-  //   // done(null, user.id);
-  // });
 
   passport.serializeUser((user, cb) => {
     process.nextTick(() => {
@@ -55,13 +37,4 @@ export const initializePassport = passport => {
       return cb(null, user);
     });
   });
-
-  // passport.deserializeUser(async (serializedUser, done) => {
-  //   try {
-  //     const user = await User.findByPk(serializedUser.id);
-  //     done(null, user);
-  //   } catch (error) {
-  //     done(error);
-  //   }
-  // });
 }
