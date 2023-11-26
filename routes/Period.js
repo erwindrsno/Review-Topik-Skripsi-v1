@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.use(checkAuthenticated);
 
-router.get("/", isAdmin, getAllPeriods);
+router.get("/", getAllPeriods);
 router.post("/add", addNewPeriod);
 
 export default router;

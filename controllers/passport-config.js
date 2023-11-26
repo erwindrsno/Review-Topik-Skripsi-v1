@@ -7,7 +7,7 @@ export const initializePassport = passport => {
   passport.use(new LocalStrategy(async (username, password, done) => {
     try {
       //harusnya validation dulu di frontend (min 8 char, harus ada special char, nomor dan capital);
-      const loginUser = await User.findOne({ where: { username: username }, include: Role });
+      const loginUser = await User.findOne({ where: { username: username } , include: Role });
       //if user not found, then no error but false user
       if (!loginUser) return done(null, false, { message: "Incorrect username" });
 
@@ -15,11 +15,18 @@ export const initializePassport = passport => {
       //if password not match, then no error but still false user
       if (!passwordMatch) return done(null, false, { message: "Incorrect password" });
 
-      console.log(JSON.stringify(loginUser, null, 2));
+      // const loginUserRoles = await loginUser.getRoles();
+
+      // console.log(loginUserRoles[0].role_name);
+
+      // const tes = JSON.stringify(loginUser.Roles, null, 2)
+
+      // console.log(tes[0]);
+
+      // console.log(loginUser.Roles[0].role_name);
+
       // res.status(200).send();
-      // const roles = await Role.findAll( {include: loginUser} );
-      // console.log(roles.toJSON());
-      // console.log(roles);
+
       return done(null, loginUser);
     }
     catch (err) {
@@ -28,16 +35,33 @@ export const initializePassport = passport => {
     }
   }))
 
-  passport.serializeUser((user, done) => {
-    done(null, user.id);
+  // passport.serializeUser((user, done) => {
+  //   // console.log(user.Roles);
+  //   done(null, { id: user.id, roles: user.Roles });
+  //   // done(null, user.id);
+  // });
+
+  passport.serializeUser((user, cb) => {
+    process.nextTick(() => {
+      return cb(null, {
+        id: user.id,
+        roles: user.Roles,
+      });
+    });
   });
 
-  passport.deserializeUser(async (id, done) => {
-    try {
-      const user = await User.findByPk(id);
-      done(null, user);
-    } catch (error) {
-      done(error);
-    }
+  passport.deserializeUser((user, cb) => {
+    process.nextTick( () => {
+      return cb(null, user);
+    });
   });
+
+  // passport.deserializeUser(async (serializedUser, done) => {
+  //   try {
+  //     const user = await User.findByPk(serializedUser.id);
+  //     done(null, user);
+  //   } catch (error) {
+  //     done(error);
+  //   }
+  // });
 }
