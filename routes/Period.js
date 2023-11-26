@@ -6,8 +6,9 @@ import { roleAuth } from '../middlewares/authorization.js';
 const router = express.Router();
 
 router.use(checkAuthenticated);
+router.use(roleAuth("admin"));
 
-router.get("/", roleAuth("admin"), getAllPeriods);
+router.get("/", getAllPeriods);
 router.post("/add", addNewPeriod);
 
 export default router;
