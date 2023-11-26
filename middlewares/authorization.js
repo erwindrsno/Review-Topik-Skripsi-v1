@@ -8,13 +8,9 @@ export const roleAuth = (allowedRole) => {
     });
 
     if(arrRoles.includes(allowedRole)){
-      res.status(200)
-      next();
+      return next();
     }
 
-    else{
-      res.status(403).send('Unauthorized!');
-    }
-
+    res.status(403).send("Unauthorized!");
   }
 }
