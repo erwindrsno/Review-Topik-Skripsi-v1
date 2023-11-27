@@ -6,6 +6,7 @@ import passport from 'passport';
 import { initializePassport } from './controllers/passport-config.js';
 import methodOverride from 'method-override';
 import cookieParser from 'cookie-parser';
+import db from './database/index.js';
 
 //import router
 import userRouter from './routes/User.js';
@@ -32,7 +33,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
 //cookieparser
-app.use(cookieParser());
+// app.use(cookieParser());
 
 //session for authorization purpose
 app.use(session({
