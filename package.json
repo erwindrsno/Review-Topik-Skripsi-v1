@@ -2,11 +2,11 @@
   "name": "review-topik-skripsi-v2",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "src/app.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node --watch app"
+    "dev": "node --watch src/app"
   },
   "author": "Erwin Darsono",
   "license": "ISC",
