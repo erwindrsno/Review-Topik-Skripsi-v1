@@ -1,6 +1,7 @@
 import express from 'express';
 import { register, logout } from '../controllers/loginController.js';
-import passport from 'passport'
+import passport from 'passport';
+import { tryCatch } from '../utils/tryCatch.js';
 
 const router = express.Router();
 
@@ -19,7 +20,7 @@ router.post('/login', passport.authenticate('local', {
 
 router.delete('/logout', logout);
 
-router.post('/register', register);
+router.post('/register', tryCatch(register));
 
 router.get('/success', (req, res) => {
     // res.redirect('/tes');

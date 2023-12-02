@@ -1,28 +1,20 @@
 import Period from '../models/Period.js';
 
-export const getAllPeriods = async (req, res, next) => {
-  try{
-    const periods = await Period.findAll();
-    res.status(200).json(periods);
-  }
-  catch(err){
-    console.log(err);
-  }
+export const getAllPeriods = async (req, res) => {
+  const periods = await Period.findAll();
+  console.log(periods);
+  if(periods.length === 0) throw new Error("No periods are found");
+  res.status(200).json(periods);
 }
 
 export const addNewPeriod = async(req, res, next) => {
   //sisa error handling
-  
-  try{
-    const [period, created] = await Period.findOrCreate({
-      where: { year: req.body.year },
-      defaults: {
-          isOddSemester: req.body.isOddSemester
-      }
-    });
-    res.status(201).json(period);
-  }
-  catch(err){
-    console.log(err);
-  }
+  const [period, created] = await Period.findOrCreate({
+    where: { year: req.body.year },
+    defaults: {
+        isOddSemester: req.body.isOddSemester
+    }
+  });
+  if(!created) throw new Error("failed to create period");
+  res.status(201).json(period);
 }
