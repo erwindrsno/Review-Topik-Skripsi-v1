@@ -11,6 +11,6 @@ export const roleAuth = (allowedRole) => {
       return next();
     }
 
-    res.status(403).send("Unauthorized!");
+    res.status(403).send("Permission denied!");
   }
 }

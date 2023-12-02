@@ -1,9 +1,10 @@
 import Period from '../models/Period.js';
+import { CustomError } from '../utils/CustomError.js';
 
 export const getAllPeriods = async (req, res) => {
   const periods = await Period.findAll();
   console.log(periods);
-  if(periods.length === 0) throw new Error("No periods are found");
+  if(periods.length === 0) throw new CustomError("No periods are found");
   res.status(200).json(periods);
 }
 
