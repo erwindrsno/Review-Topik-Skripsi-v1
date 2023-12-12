@@ -1,12 +1,11 @@
 import express from 'express';
-import { getAllUsers } from '../controllers/userController.js';
+import { getAllUsers, addUser } from '../controllers/userController.js';
+import { tryCatch } from '../utils/tryCatch.js';
 
 const router = express.Router();
 
-router.get("/", getAllUsers);
+router.get("/", tryCatch(getAllUsers));
 
-router.get("/new", (req,res) => {
-    res.send("New user");
-});
+router.get("/new", addUser);
 
 export default router;

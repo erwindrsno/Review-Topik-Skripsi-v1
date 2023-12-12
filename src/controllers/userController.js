@@ -1,11 +1,11 @@
 import User from '../models/User.js';
 
 export const getAllUsers = async (req, res, next) => {
-  try{
-    const users = await User.findAll();
-    res.status(200).json(users);
-  }
-  catch(err){
-    console.log(err);
-  }
+  const users = await User.findAll();
+  if(users.length === 0) throw new Error("No users were found");
+  res.status(200).json(users);
+}
+
+export const addUser = async(req, res, next) => {
+
 }
