@@ -2,12 +2,16 @@ import db from './config.js'
 import Role from '../models/Role.js';
 import User from '../models/User.js';
 import Period from '../models/Period.js';
+import TopikSkripsi from '../models/TopikSkripsi.js';
 
 // sync model to db
 (async () => {
     //foreign key assignment
     User.belongsToMany(Role, { through: 'UserRole', foreignKey: 'user_id' });
     Role.belongsToMany(User, { through: 'UserRole', foreignKey: 'role_id'});
+
+    User.hasMany(TopikSkripsi);
+    TopikSkripsi.belongsTo(User);
     
     await db.sync();
     console.log("===The table for all models were created!===");

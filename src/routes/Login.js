@@ -1,5 +1,5 @@
 import express from 'express';
-import { register, logout } from '../controllers/loginController.js';
+import { register, logout } from '../controllers/login.js';
 import passport from 'passport';
 import { tryCatch } from '../utils/tryCatch.js';
 

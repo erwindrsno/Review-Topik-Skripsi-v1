@@ -1,5 +1,5 @@
 import express from 'express';
-import { getAllPeriods, addNewPeriod } from '../controllers/periodController.js';
+import { getAllPeriods, addNewPeriod } from '../controllers/period.js';
 import { checkAuthenticated } from '../middlewares/authentication.js';
 import { roleAuth } from '../middlewares/authorization.js';
 import { tryCatch } from '../utils/tryCatch.js';
