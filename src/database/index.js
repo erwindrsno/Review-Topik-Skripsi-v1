@@ -12,6 +12,9 @@ import TopikSkripsi from '../models/TopikSkripsi.js';
 
     User.hasMany(TopikSkripsi);
     TopikSkripsi.belongsTo(User);
+
+    User.hasMany(TopikSkripsi);
+    TopikSkripsi.belongsTo(User);
     
     await db.sync();
     console.log("===The table for all models were created!===");

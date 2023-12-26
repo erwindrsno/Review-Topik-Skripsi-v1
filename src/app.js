@@ -13,6 +13,7 @@ import { handler } from './middlewares/errorHandler.js'
 import userRouter from './routes/User.js';
 import loginRouter from './routes/Login.js';
 import periodRouter from './routes/Period.js';
+import topikSkripsiRouter from './routes/TopikSkripsi.js';
 
 //instantiate express
 const app = express();
@@ -51,6 +52,7 @@ app.use(passport.session());
 app.use('/', loginRouter);
 app.use('/users', userRouter);
 app.use('/periods', periodRouter);
+app.use('/topik-skripsis', topikSkripsiRouter);
 
 app.use(handler);
 
