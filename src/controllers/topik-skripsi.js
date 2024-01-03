@@ -8,8 +8,12 @@ import { CustomError } from '../utils/CustomError.js';
 // }
 
 export const addTopikSkripsi = async(req, res, next) => {
-  //sisa error handling
-  
-  if(!created) throw new Error("failed to create period");
-  res.status(201).json(period);
+  const topik_skripsi = await TopikSkripsi.create({
+    judul: req.body.judul_topik,
+    kode: req.body.kode_topik,
+    status: null,
+  });
+  //must be fixed, change to findOrCreate by kode topik
+  // if(!created) throw new Error("failed to create topikskripsi");
+  res.status(201).json(topik_skripsi);
 }

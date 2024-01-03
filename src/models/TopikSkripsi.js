@@ -7,14 +7,14 @@ const TopikSkripsi = db.define('TopikSkripsi', {
         autoIncrement: true,
         primaryKey: true
     },
-    judul_topik: {
+    judul: {
       type: DataTypes.STRING
     },
-    kode_topik:{
+    kode:{
       type: DataTypes.STRING
     },
     status: {
-        type: DataTypes.STRING,
+      type: DataTypes.STRING,
     }
 });
 
