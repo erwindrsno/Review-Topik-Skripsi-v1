@@ -9,9 +9,10 @@ import { generateCode } from '../utils/generator.js';
 // }
 
 export const addTopikSkripsi = async(req, res, next) => {
-  const kode_topik = generateCode(req.user.name); 
+  const kode_topik = generateCode(req.user.name, req.body.jenis_topik,); 
   const topik_skripsi = await TopikSkripsi.create({
-    judul: req.body.judul_topik,
+    judul: req.body.judul,
+    jenis: req.body.jenis,
     kode: kode_topik,
     status: null,
   });

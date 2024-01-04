@@ -10,6 +10,9 @@ const TopikSkripsi = db.define('TopikSkripsi', {
     judul: {
       type: DataTypes.STRING
     },
+    jenis:{
+      type: DataTypes.BOOLEAN
+    },
     kode:{
       type: DataTypes.STRING
     },
