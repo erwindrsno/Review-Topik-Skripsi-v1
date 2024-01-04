@@ -27,6 +27,7 @@ export const initializePassport = passport => {
     process.nextTick(() => {
       return cb(null, {
         id: user.id,
+        name: user.name,
         roles: user.Roles,
       });
     });
