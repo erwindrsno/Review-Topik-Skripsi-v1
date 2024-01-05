@@ -9,7 +9,7 @@ export const getAllPeriods = async (req, res) => {
   res.status(200).json(periods);
 }
 
-export const addNewPeriod = async(req, res, next) => {
+export const addNewPeriod = async(req, res) => {
   //sisa error handling
   const [period, created] = await Period.findOrCreate({
     where: { 
@@ -27,10 +27,11 @@ export const addNewPeriod = async(req, res, next) => {
   res.status(201).json(period);
 }
 
-export const getCurrentPeriod = async (req, res, next) => {
+export const getCurrentPeriod = async (req, res) => {
   const current = await Period.findOne({
     order: [['createdAt', 'DESC']]
   })
   if(!current) throw new CustomError("No current period is found");
-  res.status(200).json(current);
+  // res.status(200).json(current);
+  return current;
 }
