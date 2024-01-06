@@ -7,6 +7,11 @@ export const generateCode = (name, type, year, isOddSemester) => {
   return initials;
 }
 
-const nameInitialsGenerator = name => {
-  return "Erwin Darsono"
+export const nameInitialsGenerator = name => {
+  const names = name.split(' ');
+  let initials = "";
+  for(let letter of names){
+    initials += letter[0];
+  }
+  return initials;
 }
