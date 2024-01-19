@@ -1,9 +1,17 @@
 import { name } from "ejs";
-import { nameInitialsGenerator } from "../src/utils/generator";
+import { name2InitialsGenerator, name3InitialsGenerator, name1InitialsGenerator } from "../src/utils/generator";
 
-test('harus muncul ED', () => {
-  const initials = nameInitialsGenerator('Erwin Darsono');
-  expect(initials).toBe('ED');
+test('Erwin Darsono, ED', () => {
+  const initials = name2InitialsGenerator('Erwin Darsono');
+  expect(initials).toBe('ERD');
 })
 
-test('')
+test('Reggie John Miller, RJM', () => {
+  const initials = name3InitialsGenerator('Reggie John Miller');
+  expect(initials).toBe('RJM');
+})
+
+test('Erwin, ERW', () => {
+  const initials = name1InitialsGenerator('Erwin');
+  expect(initials).toBe('ERW');
+})
