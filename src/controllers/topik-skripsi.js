@@ -9,9 +9,13 @@ import { getCurrentPeriod } from './period.js';
 //   res.status(200).json(periods);
 // }
 
-export const addTopikSkripsi = async(req, res) => {
-  const {year, isOddSemester} = await getCurrentPeriod();
-  const kode_topik = generateCode(req.user.name, req.body.type, year, isOddSemester); 
+export const addTopikSkripsi = async (req, res) => {
+  const { year, isOddSemester } = await getCurrentPeriod();
+  const judul = req.body.judul;
+  const jenis = req.body.jenis;
+  const status = req.body.status || "NULL";
+  const kode_topik = generateCode(req.user.name, jenis, year, isOddSemester);
+  console.log("KODE TOPIK SAIA : " + kode_topik);
   // const topik_skripsi = await TopikSkripsi.create({
   //   judul: req.body.judul,
   //   jenis: req.body.jenis,

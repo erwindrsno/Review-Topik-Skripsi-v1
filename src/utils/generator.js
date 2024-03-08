@@ -1,19 +1,25 @@
 export const generateCode = (name, type, year, isOddSemester) => {
-  // console.log("From generator " + name);
-  // console.log("From generator " + type);
-  // console.log("From generator " + year);
-  // console.log("From generator " + isOddSemester);
-  // const initials = nameInitialsGenerator(name);
-  const initials = "";
+  let temp;
+  if (type) {
+    temp = "Y"
+  }
+  else {
+    temp = "N"
+  }
+  const appendedYear = year => { return year.substring(2, 4) + year.substring(7, 9); }
+
+  const appendedSemester = isOddSemester => { return isOddSemester ? "GJ" : "GN"; }
+
+  const initials = nameInitialGenerator(name) + temp + appendedYear(year) + appendedSemester(isOddSemester);
   return initials;
 }
 
-export const initialGenerator = name => {
+export const nameInitialGenerator = name => {
   const names = name.split(' ');
   let length = names.length;
   let results;
-  switch(length){
-    case 1: 
+  switch (length) {
+    case 1:
       results = singleNameInitial(names);
       break;
 
@@ -31,7 +37,7 @@ export const initialGenerator = name => {
 const singleNameInitial = names => {
   let initial = "";
   let i = 0;
-  while(i < 3){
+  while (i < 3) {
     initial += names[0].charAt(i);
     i++;
   }
@@ -45,7 +51,7 @@ const doubleNameInitial = names => {
 
 const tripleNameInitial = names => {
   let initial = "";
-  for(let letter of names){
+  for (let letter of names) {
     initial += letter[0];
   }
   return initial.toUpperCase();
