@@ -1,16 +1,12 @@
 export const generateCode = (name, type, year, isOddSemester) => {
   let temp;
-  if (type) {
-    temp = "Y"
-  }
-  else {
-    temp = "N"
-  }
+  if (type) { temp = "*" }
+
   const appendedYear = year => { return year.substring(2, 4) + year.substring(7, 9); }
 
   const appendedSemester = isOddSemester => { return isOddSemester ? "GJ" : "GN"; }
 
-  const initials = nameInitialGenerator(name) + temp + appendedYear(year) + appendedSemester(isOddSemester);
+  const initials = nameInitialGenerator(name) + appendedYear(year) + appendedSemester(isOddSemester) + temp;
   return initials;
 }
 

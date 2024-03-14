@@ -1,4 +1,3 @@
-import { name } from "ejs";
 import { initialGenerator } from "../src/utils/generator";
 
 test('Erwin Darsono, ED', () => {
