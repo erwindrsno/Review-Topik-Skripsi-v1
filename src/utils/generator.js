@@ -1,4 +1,4 @@
-export const generateCode = (name, type, year, isOddSemester) => {
+export const generateCode = (name, type, year, isOddSemester, count) => {
   let temp;
   if (type) { temp = "*" }
 
@@ -6,7 +6,7 @@ export const generateCode = (name, type, year, isOddSemester) => {
 
   const appendedSemester = isOddSemester => { return isOddSemester ? "GJ" : "GN"; }
 
-  const initials = nameInitialGenerator(name) + appendedYear(year) + appendedSemester(isOddSemester) + temp;
+  const initials = nameInitialGenerator(name) + appendedYear(year) + appendedSemester(isOddSemester) + count + temp;
   return initials;
 }
 
