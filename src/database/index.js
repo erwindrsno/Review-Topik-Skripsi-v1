@@ -10,6 +10,9 @@ import TopikSkripsi from '../models/TopikSkripsi.js';
     User.belongsToMany(Role, { through: 'UserRole', foreignKey: 'user_id' });
     Role.belongsToMany(User, { through: 'UserRole', foreignKey: 'role_id'});
 
+    // User.hasMany(TopikSkripsi, { as: "UserId"});
+    // TopikSkripsi.belongsTo(User);
+
     User.hasMany(TopikSkripsi);
     TopikSkripsi.belongsTo(User);
     

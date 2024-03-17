@@ -6,13 +6,7 @@ import { Op } from 'sequelize';
 
 export const addTopikSkripsi = async (req, res) => {
   const { year, isOddSemester } = await getCurrentPeriod();
-  const { count, rows } = await TopikSkripsi.findAndCountAll({
-    where: {
-      userid: {
-        [Op.like]: req.user.id
-      }
-    },
-  });
+
   const jenis = req.body.jenis;
   const status = req.body.status || "NULL";
 
@@ -21,6 +15,18 @@ export const addTopikSkripsi = async (req, res) => {
     type: req.body.jenis,
     code: null,
     status: status,
+  });
+
+  await topik_skripsi.update({ UserId: req.user.id });
+
+  if(!topik_skripsi) throw new CustomError("gagal bikin topik");
+
+  const { count, rows } = await TopikSkripsi.findAndCountAll({
+    where: {
+      userid: {
+        [Op.like]: req.user.id
+      }
+    },
   });
 
   const kode_topik = generateCode(req.user.name, jenis, year, isOddSemester, count);
