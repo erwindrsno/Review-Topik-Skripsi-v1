@@ -7,8 +7,10 @@ export const roleAuth = (allowedRole) => {
       arrRoles[i] = role.role_name;
     });
 
-    if(arrRoles.includes(allowedRole)){
-      return next();
+    for(let j = 0; j < allowedRole.length; j++){
+      if(arrRoles.includes(allowedRole[j])){
+        return next();
+      }
     }
 
     res.status(403).send("Permission denied!");
