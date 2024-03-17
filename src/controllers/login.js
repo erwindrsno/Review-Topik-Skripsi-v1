@@ -18,7 +18,7 @@ export const register = async (req, res) => {
     });
 
     if (created) {
-        const role = await Role.findOne({ where: { role_name: 'admin' } })
+        const role = await Role.findOne({ where: { role_name: 'dosen' } })
         if (role === null) {
             res.status(500).send("Role tidak ditemukan");
         }

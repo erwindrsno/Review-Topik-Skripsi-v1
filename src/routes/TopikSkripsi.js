@@ -10,6 +10,6 @@ const router = express.Router();
 // router.get("/", getTopikSkripsi);
 router.use(checkAuthenticated);
 
-router.post("/", roleAuth("admin"), tryCatch(addTopikSkripsi));
+router.post("/", roleAuth(["dosen", "admin"]), tryCatch(addTopikSkripsi));
 
 export default router;
