@@ -8,6 +8,7 @@ import methodOverride from 'method-override';
 import cookieParser from 'cookie-parser';
 import db from './database/index.js';
 import { handler } from './middlewares/errorHandler.js'
+import { googleDriveInit } from './middlewares/googleDriveInit.js';
 
 //import router
 import userRouter from './routes/User.js';
@@ -52,7 +53,7 @@ app.use(passport.session());
 app.use('/', loginRouter);
 app.use('/users', userRouter);
 app.use('/periods', periodRouter);
-app.use('/topik-skripsis', topikSkripsiRouter);
+app.use('/topik-skripsis', googleDriveInit, topikSkripsiRouter);
 
 app.use(handler);
 

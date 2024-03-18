@@ -3,12 +3,15 @@ import { CustomError } from '../utils/CustomError.js';
 import { generateCode } from '../utils/generator.js';
 import { getCurrentPeriod } from './period.js';
 import { Op } from 'sequelize';
+import { Readable } from 'stream';
 
 export const addTopikSkripsi = async (req, res) => {
   const { year, isOddSemester } = await getCurrentPeriod();
 
   const jenis = req.body.jenis;
   const status = req.body.status || "NULL";
+
+  uploadToDrive();
 
   const topik_skripsi = await TopikSkripsi.create({
     title: req.body.judul,
@@ -19,7 +22,7 @@ export const addTopikSkripsi = async (req, res) => {
 
   await topik_skripsi.update({ UserId: req.user.id });
 
-  if(!topik_skripsi) throw new CustomError("gagal bikin topik");
+  if (!topik_skripsi) throw new CustomError("gagal bikin topik");
 
   const { count, rows } = await TopikSkripsi.findAndCountAll({
     where: {
@@ -34,4 +37,24 @@ export const addTopikSkripsi = async (req, res) => {
   topik_skripsi.code = kode_topik;
   await topik_skripsi.save();
   res.status(201).json(topik_skripsi);
+}
+
+const uploadToDrive = async (req, res) => {
+  const fileMetadata = {
+    name: 'test123.pdf'
+  }
+  const media = {
+    mimeType: req.file.mimeType,
+    body: Readable.from(req.file.buffer)
+  }
+  try {
+    const response = await drive.files.create({
+      resource: fileMetadata,
+      media: media,
+      fields: 'id',
+    })
+    console.log(response);
+  } catch (error) {
+    console.log(error.message);
+  }
 }
