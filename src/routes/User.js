@@ -7,6 +7,6 @@ const router = express.Router();
 
 router.get("/", tryCatch(getAllUsers));
 
-router.get("/new", roleAuth("admin"), addUser);
+router.post("/new", roleAuth("admin"), addUser);
 
 export default router;
