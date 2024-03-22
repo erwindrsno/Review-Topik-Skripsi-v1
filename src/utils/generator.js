@@ -1,6 +1,7 @@
 export const generateCode = (name, type, year, isOddSemester, count) => {
   let temp;
   if (type) { temp = "*" }
+  else {temp = "!"}
 
   const appendedYear = year => { return year.substring(0, 4)}
 

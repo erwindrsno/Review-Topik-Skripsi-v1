@@ -35,47 +35,25 @@ export const addTopikSkripsi = async (req, res) => {
   topik_skripsi.code = kode_topik;
   await topik_skripsi.save();
 
-  console.log("halo dari file " + req.file);
-
-  const fileMetadata = {
-    name: 'test123.pdf'
-  }
-  const media = {
-    mimeType: req.file.mimeType,
-    body: Readable.from(req.file.buffer)
-  }
-  try {
-    const response = await req.drive.files.create({
-      resource: fileMetadata,
-      media: media,
-      fields: 'id',
-    })
-    console.log(response);
-  } catch (error) {
-    console.log(error.message);
-  }
+  (async function uploadToDrive () {
+    const fileMetadata = {
+      name: kode_topik
+    }
+    const media = {
+      mimeType: req.file.mimeType,
+      body: Readable.from(req.file.buffer)
+    }
+    try {
+      const response = await req.drive.files.create({
+        resource: fileMetadata,
+        media: media,
+        fields: 'id',
+      })
+      console.log(response);
+    } catch (error) {
+      console.log(error.message);
+    }
+  })();
 
   res.status(201).json(topik_skripsi);
-  // return next();
 }
-
-// export const uploadToDrive = async (req, res) => {
-//   console.log("masuk upload to drive");
-//   const fileMetadata = {
-//     name: 'test123.pdf'
-//   }
-//   const media = {
-//     mimeType: req.file.mimeType,
-//     body: Readable.from(req.file.buffer)
-//   }
-//   try {
-//     const response = await req.drive.files.create({
-//       resource: fileMetadata,
-//       media: media,
-//       fields: 'id',
-//     })
-//     console.log(response);
-//   } catch (error) {
-//     console.log(error.message);
-//   }
-// }
