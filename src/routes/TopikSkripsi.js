@@ -20,8 +20,5 @@ const upload = multer( {storage : storage} );
 router.use(checkAuthenticated);
 
 router.post("/", roleAuth(["dosen", "admin"]), upload.single('file'), tryCatch(addTopikSkripsi));
-// router.post("/", roleAuth(["dosen", "admin"]), upload.single('file'), (req, res) => {
-//   console.log("Uploaded file success");
-// });
 
 export default router;
