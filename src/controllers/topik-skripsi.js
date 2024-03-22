@@ -5,7 +5,7 @@ import { getCurrentPeriod } from './period.js';
 import { Op } from 'sequelize';
 import { Readable } from 'stream';
 
-export const addTopikSkripsi = async (req, res, next) => {
+export const addTopikSkripsi = async (req, res) => {
   const { year, isOddSemester } = await getCurrentPeriod();
 
   const jenis = req.body.jenis;
@@ -34,6 +34,8 @@ export const addTopikSkripsi = async (req, res, next) => {
 
   topik_skripsi.code = kode_topik;
   await topik_skripsi.save();
+
+  console.log("halo dari file " + req.file);
 
   const fileMetadata = {
     name: 'test123.pdf'
