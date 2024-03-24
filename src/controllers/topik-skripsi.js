@@ -35,7 +35,7 @@ export const addTopikSkripsi = async (req, res) => {
   topik_skripsi.code = kode_topik;
   await topik_skripsi.save();
 
-  (async function uploadToDrive () {
+  (async function uploadToDrive() {
     const fileMetadata = {
       name: kode_topik
     }

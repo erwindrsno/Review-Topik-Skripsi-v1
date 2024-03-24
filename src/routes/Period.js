@@ -8,7 +8,7 @@ import { getCurrentPeriod } from '../controllers/period.js';
 const router = express.Router();
 
 router.use(checkAuthenticated);
-router.use(roleAuth("admin"));
+router.use(roleAuth(["admin"]));
 
 router.get("/", tryCatch(getAllPeriods));
 router.post("/add", tryCatch(addNewPeriod));

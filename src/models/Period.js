@@ -10,7 +10,7 @@ const Period = db.define('Period', {
     isOddSemester: {
         type: DataTypes.BOOLEAN,
     },
-    year:{
+    year: {
         type: DataTypes.STRING(9)
     }
 });
