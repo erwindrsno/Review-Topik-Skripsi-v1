@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 import session from 'express-session';
 import passport from 'passport';
+import cors from 'cors';
 import { initializePassport } from './controllers/passport-config.js';
 import methodOverride from 'method-override';
 import cookieParser from 'cookie-parser';
@@ -20,6 +21,11 @@ import topikSkripsiRouter from './routes/TopikSkripsi.js';
 const app = express();
 //to use dotenv variables
 dotenv.config();
+
+//resolve cors origin policy
+app.use(cors({
+    origin: 'http://localhost:5173'
+}))
 
 //resolving staticpath
 const staticPath = path.resolve('public');

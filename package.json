@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "jest",
-    "dev": "node --watch ./src/app.js"
+    "dev": "node ./src/app.js"
   },
   "jest": {
     "transform": {
@@ -29,6 +29,7 @@
   "dependencies": {
     "bcrypt": "^5.1.0",
     "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
     "express-session": "^1.17.3",
     "googleapis": "^134.0.0",
     "method-override": "^3.0.0",
