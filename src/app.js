@@ -23,9 +23,13 @@ const app = express();
 dotenv.config();
 
 //resolve cors origin policy
-app.use(cors({
-    origin: 'http://localhost:5173'
-}))
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    optionsSuccessStatus: 200,
+    credentials: true,
+  })
+);
 
 //resolving staticpath
 const staticPath = path.resolve('public');
