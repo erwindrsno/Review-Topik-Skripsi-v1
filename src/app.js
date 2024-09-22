@@ -49,11 +49,16 @@ app.use(methodOverride('_method'));
 // app.use(cookieParser());
 
 //session for authorization purpose
-app.use(session({
+app.use(
+  session({
     secret: `${process.env.SESSION_SECRET}`,
     resave: false,
-    saveUninitialized: false
-}));
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 60000 * 6,
+    },
+  })
+);
 
 initializePassport(passport);
 
