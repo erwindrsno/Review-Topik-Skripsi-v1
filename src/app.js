@@ -4,7 +4,7 @@ import path from 'path';
 import session from 'express-session';
 import passport from 'passport';
 import cors from 'cors';
-import { initializePassport } from './controllers/passport-config.js';
+import './controllers/passport-config.js';
 import methodOverride from 'method-override';
 import cookieParser from 'cookie-parser';
 import db from './database/index.js';
@@ -22,6 +22,14 @@ const app = express();
 //to use dotenv variables
 dotenv.config();
 
+//resolve cors origin policy
+app.use(
+    cors({
+        origin: "http://localhost:5173",
+        credentials: true,
+    })
+);
+
 //session for authorization purpose
 app.use(
     session({
@@ -32,25 +40,16 @@ app.use(
             httpOnly: false,
             maxAge: 60000 * 6,
             secure: false, // Set to true if using HTTPS
-            sameSite: 'None', // Allows cross-site cookies
         },
     })
 );
 
-//resolve cors origin policy
-app.use(
-    cors({
-        origin: "http://localhost:5173",
-        credentials: true,
-    })
-);
+//cookieparser
+app.use(cookieParser());
 
 //resolving staticpath
 const staticPath = path.resolve('public');
 app.use(express.static(staticPath));
-
-//template engine = .ejs
-app.set("view engine", "ejs");
 
 //parsing incoming data
 app.use(express.json());
@@ -58,11 +57,6 @@ app.use(express.urlencoded({ extended: true }));
 
 //overriding method
 app.use(methodOverride('_method'));
-
-//cookieparser
-// app.use(cookieParser());
-
-initializePassport(passport);
 
 app.use(passport.initialize());
 app.use(passport.session());

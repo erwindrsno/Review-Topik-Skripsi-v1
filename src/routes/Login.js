@@ -23,9 +23,12 @@ router.delete('/logout', logout);
 router.post('/register', tryCatch(register));
 
 router.get('/success', (req, res) => { 
-    console.log(req.session);
-    console.log(req.session.passport);
-    res.status(200).json({ message: "auth ok"}); 
+    const user = {
+      name: req.user.name,
+      academic_num: req.user.academic_num,
+      specialization: req.user.specialization
+    };
+    res.status(200).json({ message: "auth ok", user }); 
 });
 
 router.get('/failed', (req, res) => { res.status(401).json({ message: "auth NOT ok" }); });
