@@ -24,6 +24,7 @@ export const initializePassport = passport => {
     }))
 
     passport.serializeUser((user, cb) => {
+        console.log("serializing user...");
         process.nextTick(() => {
             return cb(null, {
                 id: user.id,
@@ -34,6 +35,7 @@ export const initializePassport = passport => {
     });
 
     passport.deserializeUser((user, cb) => {
+        console.log("de-serializing user...");
         process.nextTick(() => {
             return cb(null, user);
         });

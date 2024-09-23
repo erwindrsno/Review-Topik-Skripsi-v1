@@ -22,13 +22,27 @@ const app = express();
 //to use dotenv variables
 dotenv.config();
 
+//session for authorization purpose
+app.use(
+    session({
+        secret: `${process.env.SESSION_SECRET}`,
+        resave: false,
+        saveUninitialized: false,
+        cookie: {
+            httpOnly: false,
+            maxAge: 60000 * 6,
+            secure: false, // Set to true if using HTTPS
+            sameSite: 'None', // Allows cross-site cookies
+        },
+    })
+);
+
 //resolve cors origin policy
 app.use(
-  cors({
-    origin: "http://localhost:5173",
-    optionsSuccessStatus: 200,
-    credentials: true,
-  })
+    cors({
+        origin: "http://localhost:5173",
+        credentials: true,
+    })
 );
 
 //resolving staticpath
@@ -47,18 +61,6 @@ app.use(methodOverride('_method'));
 
 //cookieparser
 // app.use(cookieParser());
-
-//session for authorization purpose
-app.use(
-  session({
-    secret: `${process.env.SESSION_SECRET}`,
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      maxAge: 60000 * 6,
-    },
-  })
-);
 
 initializePassport(passport);
 
