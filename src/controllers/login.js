@@ -34,6 +34,12 @@ export const register = async (req, res) => {
 export const logout = (req, res, next) => {
     req.logout(function(err) {
         if (err) { return next(err); }
+        req.session.destroy((err) => {
+            if (err) {
+              return next(err);
+            }
+            res.clearCookie('connect.sid');
+        })
         res.status(200).json({msg: "logout succeed"});
     });
 }
